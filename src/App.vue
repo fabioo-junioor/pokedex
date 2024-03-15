@@ -1,19 +1,35 @@
 <script>
-import { getPokemons } from "./utils/connectApi.js";
+import CardP from "./components/CardP.vue"
+import { getPokemons } from './utils/connectApi.js'
 
 export default{
+  name: "App",
+  components: {CardP},
   data(){
     return{
       dadosPokemon: {},
       nomePokemon: '',
-      imagePokemon: null
+      numeroPokemon: '',
+      imagePokemon: null,
+      abilidade1: '',
+      abilidade2: ''
 
     }
   },
-  async mounted(){
-    this.dadosPokemon = await getPokemons('17')
-    this.nomePokemon = this.dadosPokemon.name
-    this.imagePokemon = this.dadosPokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+  methods: {
+    async buscarPokemon(nomePokemon){
+      this.dadosPokemon = await getPokemons(nomePokemon)
+      //console.log(this.dadosPokemon)
+      this.nomePokemon = this.dadosPokemon.name
+      this.numeroPokemon = this.dadosPokemon.id
+      this.abilidade1 = this.dadosPokemon.abilities[0].ability.name
+      this.abilidade2 = this.dadosPokemon.abilities[1].ability.name
+      this.imagePokemon = this.dadosPokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+
+    }
+  },
+  mounted(){
+    this.buscarPokemon('1')
 
   }
 }
@@ -21,17 +37,24 @@ export default{
 
 <template>
   <div id="app">
-    <p>Em desenvolvimento!!</p>
-    <img height="100" :src="imagePokemon" :alt="nomePokemon">
-    <p>{{nomePokemon}}</p>
+    <CardP
+      :nomePokemon="nomePokemon"
+      :numeroPokemon="numeroPokemon"
+      :abilidade1="abilidade1"
+      :abilidade2="abilidade2"
+      :imagePokemon="imagePokemon"
+      @buscarPokemon="buscarPokemon" />
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 #app{
   background-color: #e0e0e0;
   height: 100vh;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 </style>
