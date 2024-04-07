@@ -49,7 +49,7 @@ export default{
 
 <style lang="scss" scoped>
 #app{
-  background-color: #e0e0e0;
+  background-color: #212121;
   height: 100vh;
   padding: 1rem;
   display: flex;

@@ -10,7 +10,6 @@ import Button from 'primevue/button'
 
 import 'primevue/resources/themes/lara-light-green/theme.css'
 
-
 createApp(App)
     .use(Primevue)
     .component('Card', Card)

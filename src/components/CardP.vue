@@ -25,10 +25,10 @@ export default {
 </script>
 <template>
   <div id="card-pokemon">
-    <Card style="width: 25rem; overflow: hidden">
+    <Card>
         <template #header>
             <div class="id-pokemon">
-              <h2>{{ numeroPokemon }}</h2>
+              <h2>#{{ numeroPokemon }}</h2>
             </div>
             <img alt="user header" :src="imagePokemon" />
         </template>
@@ -48,9 +48,10 @@ export default {
                 <label for="username">Nome ou Numero</label>
               </FloatLabel>
               <Button
-                label="Buscar"
                 text raised
-                @click="buscarPokemon(inputNome)" />                
+                @click="buscarPokemon(inputNome)">
+                  <img src="../assets/icon/bx-search.svg" />
+                </Button>
             </div>
         </template>
     </Card>    
@@ -60,27 +61,37 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&family=Work+Sans&display=swap');
 
   #card-pokemon{
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 11px;
+    transition: all .3s;
+    width: 35rem;
+    height: 35rem;
 
     .p-card{
-      padding: 1rem;
+      background-color: #1a1a1a;
+      transition: all .2s;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-radius: 10px;
 
       .p-card-header{
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0 0 2rem 0;
 
         div{
           width: 100%;
           text-align: right;
 
           h2{
-            color: black;
+            color: white;
             font-size: 1.5rem;
+            margin: .5rem .7rem 0 0;
             font-family: 'Work Sans', sans-serif;
             
           }
@@ -91,56 +102,103 @@ export default {
         }
       }
       .p-card-body{
+        width: 100%;
+
         h2{
-          color: #333;
+          color: white;
           font-size: 1.2rem;
           font-weight: bold;
           font-family: 'Work Sans', sans-serif;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          border-bottom: 1px solid white;
 
         }
         p{
           padding: .4rem 0 0 0;
-          color: #333;
+          color: rgba(255, 255, 255, .8);
           font-size: 1rem;
           font-weight: normal;
           font-family: 'Work Sans', sans-serif;
 
         }
         .p-card-caption{
-          margin: 1rem;
+          margin: 1rem 0;
+          padding: 1rem 0;
           display: flex;
           justify-content: space-evenly;
 
           .p-card-title{
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, .8);
             padding: .5rem;
 
           }
           .p-card-subtitle{
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, .8);
             padding: .5rem;
 
           }          
         }
         .p-card-footer{
-          margin: 2rem 0;
+          margin: 2rem 0 0 0;
 
           div{
+            width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             font-family: 'Work Sans', sans-serif;
+          
+            span{
+              width: 70%;
 
-            input{
-              margin: 0 .2rem;
-              padding-left: .3rem;
-              height: 100%;
-              box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+              input{
+                margin: 0 .2rem;
+                padding-left: .3rem;
+                height: 100%;
+                width: 100%;
+                color: #1a1a1a;
+                font-weight: 600;
+                box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, 0.1);
 
+                &:focus + label{
+                  color: rgba(255, 255, 255, .8);
+
+                }
+              }
+              label{
+                color: #1a1a1a;
+                font-weight: 600;
+
+              }
+            }
+            .p-button{
+              width: 25%;
+              display: flex;
+              justify-content: center;
+              background-color: white;
+              border: none;
+              
+              img{
+                text-align: center;
+                width: 2rem;
+                
+              }
+              &:hover{
+                background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+                box-shadow: 0px 0px 10px 1px rgba(0, 255, 117, 0.30);
+
+              }
             }
           }
         }
       }
+      &:hover{
+        transform: scale(0.98);
+        border-radius: 10px;
+
+      }
+    }
+    &:hover{
+      box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+    
     }
   }
 </style>
