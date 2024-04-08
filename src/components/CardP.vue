@@ -82,7 +82,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 0 2rem 0;
+        padding: 0 0 1rem 0;
 
         div{
           width: 100%;
@@ -97,7 +97,7 @@ export default {
           }
         }
         img{
-          height: 10rem;
+          height: 13rem;
 
         }
       }

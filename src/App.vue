@@ -19,12 +19,11 @@ export default{
   methods: {
     async buscarPokemon(nomePokemon){
       this.dadosPokemon = await getPokemons(nomePokemon)
-      //console.log(this.dadosPokemon)
       this.nomePokemon = this.dadosPokemon.name
       this.numeroPokemon = this.dadosPokemon.id
       this.abilidade1 = this.dadosPokemon.abilities[0].ability.name
       this.abilidade2 = this.dadosPokemon.abilities[1].ability.name
-      this.imagePokemon = this.dadosPokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+      this.imagePokemon = this.dadosPokemon['sprites']['other']['home']['front_default']
 
     }
   },
