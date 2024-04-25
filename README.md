@@ -17,6 +17,6 @@ A Pokédex é uma ferramenta para explorar e descobrir informações sobre difer
 * Netlify
   
 # Autor
-### Fábio Júnior
-### Email: fcjunior@inf.ufsm.br
-### Portfólio: https://fabiojuniordev.netlify.app/
+#### Fábio Júnior
+#### Email: fcjunior@inf.ufsm.br
+#### Portfólio: https://fabiojuniordev.netlify.app/
